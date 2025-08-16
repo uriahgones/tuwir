@@ -1,16 +1,7 @@
-
 from seleniumwire import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 import time
-
-options = {
-    'proxy': {
-        'http': 'http://ab2eb473da6cb89dce33__cr.au:8da5a798889aa9d3@gw.dataimpulse.com:10001',
-        'https': 'http://ab2eb473da6cb89dce33__cr.au:8da5a798889aa9d3@gw.dataimpulse.com:10001',
-        'no_proxy': 'localhost,127.0.0.1'
-    }
-}
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("--verbose")
@@ -29,6 +20,8 @@ chrome_options.add_argument("--metrics-recording-only")  # Nonaktifkan pengumpul
 chrome_options.add_argument("--safebrowsing-disable-auto-update")  # Nonaktifkan pembaruan otomatis Safe Browsing
 chrome_options.add_argument("--disable-component-update")  # Nonaktifkan pembaruan komponen
 chrome_options.add_argument("--disable-domain-reliability")  # Nonaktifkan keandalan domain
+chrome_options.add_argument("--user-data-dir=/tmp/user-data")
+chrome_options.add_argument("--homedir=/tmp") # Penting untuk menghindari penulisan di /root
 
 # --- Argumen tambahan untuk memblokir koneksi ke Google Optimization Guide ---
 # Menonaktifkan fitur-fitur yang terkait dengan Optimization Guide dan sejenisnya
@@ -48,7 +41,7 @@ chrome_options.add_argument("--disable-blink-features=AutomationControlled") # M
 
 driver = webdriver.Chrome(seleniumwire_options=options, options=chrome_options)
 
-driver.get("https://sepolia-faucet.pk910.de/#/mine/8c913189-542f-46f3-bdc7-5c4e261fabe7")
+driver.get("http://13.53.234.137:8001/#/mine/a2f4a7ac-823b-4d2c-be68-aff6176f52cd")
 time.sleep(50000)
 
 div_element = driver.find_element(By.CLASS_NAME, "col-3")
