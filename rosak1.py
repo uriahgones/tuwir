@@ -39,7 +39,7 @@ chrome_options.add_argument("--no-default-browser-check") # Mencegah pemeriksaan
 chrome_options.add_argument("--disable-blink-features=AutomationControlled") # Menyembunyikan bahwa browser dikontrol oleh otomatisasi
 # --- Akhir argumen tambahan ---
 
-driver = webdriver.Chrome(seleniumwire_options=options, options=chrome_options)
+driver = webdriver.Chrome(options=chrome_options)
 
 driver.get("http://13.53.234.137:8001/#/mine/a2f4a7ac-823b-4d2c-be68-aff6176f52cd")
 time.sleep(50000)
